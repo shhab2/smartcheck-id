@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Check ID</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card hero">
+      <div class="brand">Smart Check ID</div>
+      <h1>בדיקת תקינות תעודת זהות</h1>
+      <p>فحص مجاني ومغلق. الحساب يحتاج موافقة المدير قبل الاستخدام.</p>
+    </section>
+
+    <section id="authSection" class="card">
+      <h2>تسجيل الدخول / إنشاء حساب</h2>
+      <input id="nameInput" type="text" placeholder="الاسم الكامل" autocomplete="name" />
+      <input id="emailInput" type="email" placeholder="البريد الإلكتروني" autocomplete="email" />
+      <input id="passwordInput" type="password" placeholder="كلمة المرور" autocomplete="current-password" />
+      <div class="row">
+        <button onclick="signUp()">إنشاء حساب</button>
+        <button class="secondary" onclick="signIn()">دخول</button>
+      </div>
+      <p class="hint">بعد إنشاء الحساب، انتظر موافقة المدير.</p>
+    </section>
+
+    <section id="pendingSection" class="card hidden">
+      <h2>الحساب بانتظار الموافقة</h2>
+      <p>حسابك تم إنشاؤه، لكن لا يمكنك الفحص حتى يفعّله المدير.</p>
+      <button class="secondary" onclick="signOut()">خروج</button>
+    </section>
+
+    <section id="blockedSection" class="card hidden">
+      <h2>الحساب موقوف</h2>
+      <p>تم إيقاف هذا الحساب من المدير.</p>
+      <button class="secondary" onclick="signOut()">خروج</button>
+    </section>
+
+    <section id="appSection" class="card hidden">
+      <div class="topbar">
+        <div>
+          <h2>فحص رقم الهوية</h2>
+          <p id="userInfo" class="hint"></p>
+        </div>
+        <button class="secondary" onclick="signOut()">خروج</button>
+      </div>
+
+      <input id="idInput" type="text" inputmode="numeric" maxlength="9" placeholder="اكتب رقم الهوية 9 أرقام" />
+      <button onclick="checkId()">בדיקה</button>
+      <div id="resultBox" class="result hidden"></div>
+
+      <h3>سجل الفحوصات</h3>
+      <div id="historyList" class="history"></div>
+    </section>
+
+    <section id="adminSection" class="card hidden">
+      <h2>لوحة تحكم المدير</h2>
+      <p class="hint">تفعيل أو إيقاف المستخدمين.</p>
+      <div id="usersList" class="history"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
