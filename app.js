@@ -1,5 +1,5 @@
 // ضع هنا بيانات Supabase التي حفظتها
-const SUPABASE_URL = "https://akcdcwaersvhieqpsiu.supabase.co";
+const SUPABASE_URL = "https://akkdcwaervshlieqpsiu.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_rQzB3PgFgXUkKArupOOm8w_tsq0EeXx";
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
